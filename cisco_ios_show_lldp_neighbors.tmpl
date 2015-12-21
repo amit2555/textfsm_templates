@@ -1,0 +1,10 @@
+Value Remote_device (\S+)
+Value Local_intf (\S+)
+Value Remote_intf (\S+)
+
+Start
+  ^Device -> LLDP
+
+LLDP
+  ^${Remote_device}\s+${Local_intf}\s+\d+\s+\S\s+${Remote_intf} -> Record
+

@@ -1,0 +1,18 @@
+Value Status_Code (\S+)
+Value Network (\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})
+Value Mask (\/\d{1,2})
+Value Next_Hop (\S+)
+Value Metric (\d+)
+Value LocPrf (\d+)
+Value Weight (\d+)
+Value Path (\d+)
+Value Origin (i|e|\?) 
+
+Start
+	^.*Network -> Routes
+
+Routes
+	^${Status_Code}\s${Network}${Mask}\s+${Next_Hop}\s+${Metric}\s+${LocPrf}\s+${Weight}\s+(${Path}\s)${Origin} -> Record
+
+
+
